@@ -17,7 +17,7 @@
     <br/>
 </div>
 <div align="center">
-    <img style="width:60%"  alt="Screenshot 2022-02-26 at 7 11 24 pm" src="https://user-images.githubusercontent.com/76784461/156901165-2d6c64e9-5e1e-456c-b8a5-55ee806730ae.png">
+    <img style="width:60%"  alt="Screenshot 2022-02-26 at 7 11 24 pm" src="https://user-images.githubusercontent.com/76784461/156902360-38036981-2cf7-4e67-93d1-0717f2239f80.png">
   </div>
 
 
