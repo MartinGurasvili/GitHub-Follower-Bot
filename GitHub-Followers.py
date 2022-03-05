@@ -128,7 +128,7 @@ space2 = Label(root, text=' ', fg="#898989", font="Helveca 1 bold",bg="#282828")
 space2.pack()
 
 passw=""
-ui_password= PlaceholderEntry(root, "Enter Passoword",textvariable=passw,font="Geneva 30 bold",justify=CENTER)
+ui_password= PlaceholderEntry(root, "Enter Password",textvariable=passw,font="Geneva 30 bold",justify=CENTER)
 ui_password.pack()
 
 space3 = Label(root, text=' ', fg="#898989", font="Helveca 2 bold",bg="#282828")
