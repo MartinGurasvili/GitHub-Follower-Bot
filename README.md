@@ -13,7 +13,7 @@
     This is an ui based tool to increase your GitHub following
     <br />
     <br>
-    <a href="https://github.com/MartinGurasvili/Python-GitHub-Follower-Bot"><h3>Try it now</h3></a>
+    <a href="https://github.com/MartinGurasvili/Python-GitHub-Follower-Bot/releases/download/v1.0.0/GitHub-Followers.py"><h3>Try it now</h3></a>
     <br/>
 </div>
 <div align="center">
