@@ -10,7 +10,7 @@
 
 <p align="center">
     <br>
-    This is an ui based tool to increase your GitHub following
+    This is a UI based tool to increase your GitHub following using Python-Selenium
     <br />
     <br>
     <a href="https://github.com/MartinGurasvili/Python-GitHub-Follower-Bot/releases/download/v1.0.0/GitHub-Followers.py"><h3>Try it now</h3></a>
@@ -26,15 +26,18 @@
 <h1 align="center" >Features </h1>
 <br></br>
 
-   - [ ] Error Detection
-   - [ ] Simple UI
-   
-   - [ ] Quickly increase your github following by following people from the most followed on github, thus more likely to follow.
-   
-   - [ ] Easy Setup
+   - [ ] Quickly increase your github following by following people from the most followed on github, thus more likely to follow you back.
    - [ ] Human Simulation - to eliminate githubs spam detection
    - [ ] Both Follower and Unfollower tools built into one
    - [ ] Runs in background
+   - [ ] Error Detection
+   - [ ] Simple UI
+   
+   
+   
+   - [ ] Easy Setup
+   
+
    
    
 <br></br>
