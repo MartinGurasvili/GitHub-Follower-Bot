@@ -73,6 +73,7 @@ def follow(following):
         try:
             while((auth.text).isdigit()):
                 try:
+                    root.update()
                     auth = driver.find_element(By.XPATH, '//*[@id="github-mobile-authenticate-prompt"]/h1')
                     print(auth.text) 
                     time.sleep(10)
