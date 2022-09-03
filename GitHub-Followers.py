@@ -1,18 +1,17 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.by import By
 import time
 import tkinter
 from tkinter import *
 from tkinter import ttk
 import sys
 
-# make sure that this is the correct location for your chrome drivers
-
-path = "/opt/homebrew/bin/chromedriver"
-
 # makes the driver run in background
 options = Options()
-options.add_argument('--headless')
+#options.add_argument('--headless')
 
 root = Tk()
 root.title("GitHub Follower Bot")
@@ -47,15 +46,15 @@ def follow(following):
     global ui_username,ui_password
     title.config(fg="#7faaab",text="Follower Bot")  
     try:
-        driver = webdriver.Chrome(path,chrome_options=options)
+        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     except:
         title.config(fg="#990000",text="PATH Error")
         return
     # base url
     driver.get("http://github.com/login")
 
-    username = driver.find_element_by_id("login_field")
-    password = driver.find_element_by_id("password")
+    username = driver.find_element(By.ID, "login_field")
+    password = driver.find_element(By.ID, "password")
 
     # password and username need to go into these values
     username.send_keys(ui_username.get())
@@ -63,20 +62,31 @@ def follow(following):
     password.send_keys(ui_password.get())
     time.sleep(1)
 
-    login_form = driver.find_element_by_xpath("//input[@value='Sign in']")
+    login_form = driver.find_element(By.XPATH, "//input[@value='Sign in']")
     time.sleep(1)
     login_form.click()
     time.sleep(1)
-
+    auth = driver.find_element(By.XPATH, '//*[@id="github-mobile-authenticate-prompt"]/h1')
+    if((auth.text).isdigit()):
+        title.config(fg="#7faaab",text="GH Mobile Code = "+auth.text)    
+        root.update()
+        while((auth.text).isdigit()):
+            auth = driver.find_element(By.XPATH, '//*[@id="github-mobile-authenticate-prompt"]/h1')
+            
+            print(auth.text) 
+            time.sleep(10)
+    
+   
+    
     # These are some of the most popular users on github
-    prepend = ["jashkenas", "ruanyf", "substack", "kennethreitz", "jlord", "daimajia", "mdo", "schacon", "mattt",
+    prepend = [ "ruanyf", "substack", "kennethreitz", "jlord", "daimajia", "mdo", "schacon", "mattt",
                "sindresorhus", "defunkt", "douglascrockford", "mbostock", "jeresig",
                "mojombo", "addyosmani", "paulirish", "vczh", "romannurik", "tenderlove", "chriscoyier", "johnpapa",
                "josevalim",
                "charliesome", "CoderMJLee", "ry", "antirez", "muan", "isaacs", "angusshire",
                "hadley", "hakimel", "yyx990803", "fat", "fabpot", "ibireme", "tekkub",
                "BYVoid", "laruence", "onevcat", "tpope", "mrdoob", "LeaVerou", "chrisbanes", "wycats", "lifesinger",
-               "cloudwu", "mitsuhiko", "michaelliao", "ryanb", "clowwindy", "JacksonTian", "yinwang0", "Trinea",
+               "cloudwu", "mitsuhiko", "michaelliao", "ryanb", "clowwindy", "JacksonTian", "yinwang0", "Trinea","jashkenas",
                "pjhyett", "dhh", "gaearon"]
 
     for user in prepend:
@@ -88,9 +98,13 @@ def follow(following):
             time.sleep(1)
             
             if(following):
-                follow_button = driver.find_elements_by_xpath("//input[@value='Follow']")
+                follow_button = driver.find_elements(By.XPATH,"//input[@value='Follow']")
+                title.config(fg="#7faaab",text="Following..")  
+                root.update() 
             else:
-                follow_button = driver.find_elements_by_xpath("//input[@value='Unfollow']")
+                follow_button = driver.find_elements(By.XPATH,"//input[@value='Unfollow']")
+                title.config(fg="#7faaab",text="Unfollowing..")  
+                root.update() 
             print("on page",t)   
             # Once page is loaded this clicks all buttons for follow
             if (len(follow_button) !=0):
