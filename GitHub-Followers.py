@@ -11,7 +11,7 @@ import sys
 
 # makes the driver run in background
 options = Options()
-#options.add_argument('--headless')
+options.add_argument('--headless')
 
 root = Tk()
 root.title("GitHub Follower Bot")
@@ -43,7 +43,7 @@ class PlaceholderEntry(ttk.Entry):
             self["style"] = "Placeholder.TEntry"
 
 def follow(following):
-    global ui_username,ui_password
+    global ui_username,ui_password,root,title
     title.config(fg="#7faaab",text="Follower Bot")  
     try:
         driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
@@ -70,23 +70,28 @@ def follow(following):
     if((auth.text).isdigit()):
         title.config(fg="#7faaab",text="GH Mobile Code = "+auth.text)    
         root.update()
-        while((auth.text).isdigit()):
-            auth = driver.find_element(By.XPATH, '//*[@id="github-mobile-authenticate-prompt"]/h1')
-            
-            print(auth.text) 
-            time.sleep(10)
+        try:
+            while((auth.text).isdigit()):
+                try:
+                    auth = driver.find_element(By.XPATH, '//*[@id="github-mobile-authenticate-prompt"]/h1')
+                    print(auth.text) 
+                    time.sleep(10)
+                except:
+                    break
+        except:
+            print("continue")
     
    
     
     # These are some of the most popular users on github
-    prepend = [ "ruanyf", "substack", "kennethreitz", "jlord", "daimajia", "mdo", "schacon", "mattt",
+    prepend = [ "michaelliao", "ryanb", "clowwindy", "JacksonTian","ruanyf", "substack", "kennethreitz", "jlord", "daimajia", "mdo", "schacon", "mattt",
                "sindresorhus", "defunkt", "douglascrockford", "mbostock", "jeresig",
                "mojombo", "addyosmani", "paulirish", "vczh", "romannurik", "tenderlove", "chriscoyier", "johnpapa",
                "josevalim",
                "charliesome", "CoderMJLee", "ry", "antirez", "muan", "isaacs", "angusshire",
                "hadley", "hakimel", "yyx990803", "fat", "fabpot", "ibireme", "tekkub",
                "BYVoid", "laruence", "onevcat", "tpope", "mrdoob", "LeaVerou", "chrisbanes", "wycats", "lifesinger",
-               "cloudwu", "mitsuhiko", "michaelliao", "ryanb", "clowwindy", "JacksonTian", "yinwang0", "Trinea","jashkenas",
+               "cloudwu", "mitsuhiko","yinwang0", "Trinea","jashkenas",
                "pjhyett", "dhh", "gaearon"]
 
     for user in prepend:
