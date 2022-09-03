@@ -51,7 +51,7 @@ First we need to install homebrew - paste this command into the terminal
 After that paste these two lines
 
  `brew tap homebrew/cask`  
-`brew cask install chromedriver`  
+`brew install chromedriver --cask`  
 
 Now you need to import the python libaries
 
