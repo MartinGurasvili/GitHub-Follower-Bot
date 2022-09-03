@@ -30,11 +30,9 @@
    - [ ] Human Simulation - to eliminate githubs spam detection
    - [ ] Both Follower and Unfollower tools built into one
    - [ ] Runs in background
+   - [ ] Github Mobile Prompt
    - [ ] Error Detection
    - [ ] Simple UI
-   
-   
-   
    - [ ] Easy Setup
    
 
@@ -43,37 +41,21 @@
 <br></br>
 <h1 align="center" >Setup </h1>
 <br></br>
-<h2>Mac Install</h2>
-First we need to install homebrew - paste this command into the terminal
+<h2>Install</h2>
+Due to the new version of selenium the set up process has become Very Easy
 
- `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
-   
-After that paste these two lines
-
- `brew tap homebrew/cask`  
-`brew install chromedriver --cask`  
-
-Now you need to import the python libaries
+all we need is these python modules
 
  `pip install selenium`
+ 
+  `pip install webdriver-manager`
+  
 `pip install tkinter`
 
-Now you can run the script
+if you have selenium ensure that your runnning the latest version v4.0.0 and up
 
-<h2>Windows Install</h2>
-First Download ChromeDrivers from https://chromedriver.storage.googleapis.com/index.html
-
-once that is done open the file and modify the 11th line
-
-`path = "/opt/homebrew/bin/chromedriver"`
-
-To the location of your driver
-
-Now you need to import the python libaries
-
- `pip install selenium`
-`pip install tkinter`
-
+ `pip install -U selenium`
+ 
 Now you can run the script
 
 <br></br>
@@ -93,10 +75,8 @@ This means that the installation of the Chrome drivers was done incorrectly or t
   </div>
  
  To fix this error
- Modify the 11th line of the python file
+Ensure that all the modules are installed - look in terminal for further detail
 
-`path = "/opt/homebrew/bin/chromedriver"`
 
-To the location of your driver
 
 <br></br>
